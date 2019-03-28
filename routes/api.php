@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Events\PusherEvent;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +15,9 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('event',function(){
+	event(new PusherEvent());
+	return ['mensagem'=>'Teste'];
 });
