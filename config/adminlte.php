@@ -108,28 +108,28 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'MENU',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
            // 'can'  => 'somente-admin',
         ],
+        // [
+        //     'text'        => 'Usuários',
+        //     'url'         => 'admin/usuarios',
+        //     'icon'        => 'users',
+        //     'label'       => 5,
+        //     'label_color' => 'success',
+        //     'can'=>'somente-admin'
+        // ],
+        'MINHA CONTA',
         [
-            'text'        => 'Usuários',
-            'url'         => 'admin/usuarios',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-            'can'=>'somente-admin'
-        ],
-        'ACCOUNT SETTINGS',
-        [
-            'text' => 'Profile',
+            'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Alterar senha',
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],

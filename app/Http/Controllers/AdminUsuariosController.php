@@ -10,16 +10,27 @@ class AdminUsuariosController extends Controller
     public function index(User $user)
     {
             return view('admin.usuarios',[
-                'users'=>$user->paginate(1)
+                'users'=>$user->paginate(10)
             ]);
     }
 
-    public function alterarpermissao(User $user)
+    public function alterarpermissao(User $user, Request $request)
     {
-        return view('admin.usuarios',[
-            'users'=>$user->paginate(1)
-        ])->withErrors([
-            "Erro aqui"
-        ]);
+        try{
+
+            $user = $user->find($request->input('id'));
+            $user->permission = $request->input('permission');
+            $user->save();
+            return redirect('admin/usuarios')
+                    ->withSuccess('Permissão alterada com sucesso!');
+
+
+        }catch(\Exception $e){
+            return redirect('admin/usuarios')->withErrors([
+                "Exception"=>$e->getMessage(),
+                "File"=>$e->getFile(),
+                "Line"=>$e->getLine()
+                ]);    
+        }
     }
 }

@@ -4,6 +4,7 @@ $(document).ready(()=>{
         
 
         $('.modal-title').text(user.name);
+        $('#permission_uid').val(user.id);
 
         var permissoes = $('#permissoes').data('permissoes').split(',');
 

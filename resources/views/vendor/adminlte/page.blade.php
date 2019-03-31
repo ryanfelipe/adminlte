@@ -115,14 +115,50 @@
             <!-- Main content -->
             <section class="content">
             @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="box box-danger box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ops!</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="remove">
+                <i class="fa fa-times"></i></button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+           
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+        
             </div>
+            <!-- /.box-body -->
+          </div>
+            
             @endif
+            @if ( session()->has('success') )
+            <div class="box box-success box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Sucesso</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="remove">
+                <i class="fa fa-times"></i></button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              {{session('success')}}
+            </div>
+            <!-- /.box-body -->
+          </div>
+            @endif
+            
+
                 @yield('content')
 
             </section>

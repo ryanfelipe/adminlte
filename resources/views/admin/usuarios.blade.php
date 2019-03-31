@@ -20,7 +20,7 @@
                    data-toggle="modal" 
                    data-target="#modal-default"
                    data-user="{{$user}}">
-                    <i class="fa fa-edit"></i> Edit
+                    <i class="fa fa-edit"></i>
                 </a>
                 
             </td>
@@ -42,18 +42,17 @@
                     <div class="box box-primary">
                     <div class="box-body">
                         <form action="{{route('alterarpermissao')}}" method="POST">
+                        {{csrf_field()}}
                         <div class="form-group">
                             <div class="row">                            
                                 <div class="col-md-3">
                                     <label for="permissions">PERFIL</label>
                                     <span id="permissoes" data-permissoes="{{env('PERMISSIONS')}}"></span>
-                                    <select  class="form-control" id="user_p" placeholder="Enter email">                            
+                                    <select  class="form-control" name="permission" id="user_p" placeholder="Enter email">                            
                                     </select>
                                 </div>
                                 <div class="col-md-2">                                 
-                                  {{csrf_field()}}
-                                  <input type="hidden" name="id">
-                                  <input type="hidden" name="permissao"> 
+                                    <input type="hidden" name="id" id="permission_uid">
                                     <label>Opção</label>    
                                     <button type="submit" class="btn btn-primary">CONFIRMAR</button>                                    
                                 </div>
