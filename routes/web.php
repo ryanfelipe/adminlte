@@ -19,5 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/settings','SettingsController@index');
+Route::post('/admin/settings/salvar','SettingsController@salvar')->name('perfil.salvar');
 Route::get('/admin/usuarios','AdminUsuariosController@index')->middleware('can:somente-admin');
 Route::post('/admin/alterarpermissao','AdminUsuariosController@alterarpermissao')->name('alterarpermissao')->middleware('can:somente-admin');

@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    $('#editarUsuario').on('click',function(){
+    $('.editarUsuario').on('click',function(){
         var user = $(this).data('user');
         
 

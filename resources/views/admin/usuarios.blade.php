@@ -8,15 +8,14 @@
 @stop
 
 @section('content')
-
+<span id="permissoes" data-permissoes="<?php echo implode(',',config('permissions'));?>"></span>
 <table class="table table-bordered">
     @foreach($users as $user)
         <tr>
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>
-                <a class="btn btn-app"
-                    id="editarUsuario" 
+                <a class="btn btn-app editarUsuario"
                    data-toggle="modal" 
                    data-target="#modal-default"
                    data-user="{{$user}}">
@@ -47,7 +46,6 @@
                             <div class="row">                            
                                 <div class="col-md-3">
                                     <label for="permissions">PERFIL</label>
-                                    <span id="permissoes" data-permissoes="{{env('PERMISSIONS')}}"></span>
                                     <select  class="form-control" name="permission" id="user_p" placeholder="Enter email">                            
                                     </select>
                                 </div>
