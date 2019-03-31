@@ -112,14 +112,15 @@ return [
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+           // 'can'  => 'somente-admin',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Usuários',
+            'url'         => 'admin/usuarios',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
+            'can'=>'somente-admin'
         ],
         'ACCOUNT SETTINGS',
         [

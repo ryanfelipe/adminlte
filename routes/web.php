@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/admin/settings','SettingsController@index');
+Route::get('/admin/usuarios','AdminUsuariosController@index')->middleware('can:somente-admin');
+Route::post('/admin/alterarpermissao','AdminUsuariosController@alterarpermissao')->name('alterarpermissao')->middleware('can:somente-admin');
