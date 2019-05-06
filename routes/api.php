@@ -23,3 +23,4 @@ Route::get('event',function(){
 });
 
 Route::post('login','Api\AuthenticateController@authenticate');
+Route::get('teste','Api\UserController@index')->middleware('jwt.auth');
