@@ -21,3 +21,5 @@ Route::get('event',function(){
 	event(new PusherEvent());
 	return ['mensagem'=>'Teste'];
 });
+
+Route::post('login','Api\AuthenticateController@authenticate');
