@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 31-Mar-2019 às 01:59
+-- Generation Time: 08-Maio-2019 às 02:48
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.3
 
@@ -84,9 +84,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `permission`) VALUES
-(1, 'Gilvan Moura', 'ti.gilvan@gmail.com', '$2y$10$Kf7IhCv3zgp/mAtG6bz6G.9DDDY6UuVZzP48X/fcKCmjFlsm1FeTq', '8xThQWRoRh0xmpf0YECr9G52IsM2qtW33QlusIrgbRPMhLR2kh8XXxYRfYXG', '2018-12-17 21:09:23', '2018-12-17 21:09:23', 'USUARIO'),
-(2, 'Adriana', 'adriana@gmail.com', '$2y$10$.gVHAFz9XZ0w80HtF6yHxO3NPt29iukU9udy7Oyzk5irShSLosWm2', 'oQ8xayKYyfPPyZg6HSzq85FaMAHUSgMRDJTifZfxCCjUYdeVyFGjhTxTRqsw', '2019-03-31 01:13:07', '2019-03-31 01:13:07', 'USUARIO'),
-(3, 'ADMIN', 'admin@gmail.com', '$2y$10$kWVu0qVq4FC6ij1GdVPTzu/QENeWEmneSLPsmUhXweclgj8WGypeK', 'Ef4KZQt5MdyTefCM4WsyNthQSl3wiBUpfKnl3QzbTABx1OTB0WMVnXdqUtkG', '2019-03-31 01:15:01', '2019-03-31 01:15:01', 'ADMIN');
+(1, 'Gilvan Moura', 'ti.gilvan@gmail.com', '$2y$10$Kf7IhCv3zgp/mAtG6bz6G.9DDDY6UuVZzP48X/fcKCmjFlsm1FeTq', 'pIYCpV5nyIyBOIqyMmQI5iTlwTbiNle2f0wcoCAjEGl3J9Iz0i4FWQjlGk4k', '2018-12-17 21:09:23', '2019-03-31 22:35:05', 'USUARIO'),
+(2, 'Adriana', 'adriana@gmail.com', '$2y$10$.gVHAFz9XZ0w80HtF6yHxO3NPt29iukU9udy7Oyzk5irShSLosWm2', 'oQ8xayKYyfPPyZg6HSzq85FaMAHUSgMRDJTifZfxCCjUYdeVyFGjhTxTRqsw', '2019-03-31 01:13:07', '2019-03-31 22:01:02', 'USUARIO'),
+(3, 'ADMIN', 'admin@gmail.com', '$2y$10$kWVu0qVq4FC6ij1GdVPTzu/QENeWEmneSLPsmUhXweclgj8WGypeK', 'Ef4KZQt5MdyTefCM4WsyNthQSl3wiBUpfKnl3QzbTABx1OTB0WMVnXdqUtkG', '2019-03-31 01:15:01', '2019-03-31 22:24:06', 'ADMIN');
 
 --
 -- Indexes for dumped tables
