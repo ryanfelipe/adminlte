@@ -9,6 +9,23 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthenticateController extends Controller
 {
+
+    public function refresh(Request $request)
+    {
+        try{
+
+            $token_old = JWTAuth::getToken();
+            $token = JWTAuth::refresh($token_old);
+    
+            return response()->json(compact('token'));
+        }catch(JWTException $e)
+        {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+        
+
+    } 
+
     public function authenticate(Request $request)
     {
         // grab credentials from the request
