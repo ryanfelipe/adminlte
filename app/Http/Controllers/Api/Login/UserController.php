@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Login;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +15,36 @@ class UserController extends Controller
         $user = JWTAuth::parseToken()->toUser();
 
         return Response::json(compact('user'));
+    }
+
+    public function register(Request $request)
+    {
+         try{
+             
+              $data = $request->all();
+
+               User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'permission'=>'USUARIO'
+               ]);
+               $credentials = $request->only('email', 'password');
+
+               $token = JWTAuth::attempt($credentials);
+
+               return response()->json(compact('token'),200);
+
+         }catch(\Exception $e){
+             return Response::json([
+                 'result'=>[
+                     'type'=>'error',
+                     'msg'=>$e->getMessage()
+                 ]
+             ]);
+         }
+
+         
     }
 
     public function getAuthenticatedUser()

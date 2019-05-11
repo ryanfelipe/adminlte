@@ -22,7 +22,16 @@ Route::get('event',function(){
 	return ['mensagem'=>'Teste'];
 });
 
-Route::post('login','Api\AuthenticateController@authenticate');
-Route::post('refresh','Api\AuthenticateController@refresh');
+Route::prefix('auth')->group(function(){
+	 Route::post('login','Api\Login\AuthenticateController@authenticate');
+	 Route::post('refresh','Api\Login\AuthenticateController@refresh');
+	 Route::post('register','Api\Login\UserController@register');
+	
+	 Route::group(['middleware'=> 'jwt.auth' ],function(){
+		   Route::get('me','Api\Login\AuthenticateController@me');
+	 });
+});
+
+
 
 Route::middleware(['jwt.auth','perfil'])->get('teste','Api\UserController@index');

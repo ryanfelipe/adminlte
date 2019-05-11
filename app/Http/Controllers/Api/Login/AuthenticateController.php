@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Login;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -43,5 +43,22 @@ class AuthenticateController extends Controller
 
         // all good so return the token
         return response()->json(compact('token'));
+    }
+
+    public function logout()
+    {
+        $token = JWTAuth::getToken();
+        $this->jwtAuth->invalidate($token);
+
+        return response()->json(['logout']);
+    }
+
+    public function me()
+    {
+           if(!$user = JWTAuth::parseToken()->authenticate() ){
+                return response()->json(['error'=>'user_not_fount'],401);
+           } 
+           //$user['data'] = $user['data'];
+           return response()->json(compact('user'));
     }
 }

@@ -21,7 +21,7 @@ class PerfilMiddleware
         $user = JWTAuth::parseToken()->toUser();
 
         if($user->permission != 'PROFESSOR'){
-             return Response::json(['acesso_negado'=>'Você não possui permissão']);
+             return Response::json(['acesso_negado'=>'Você não possui permissão'],401);
         }
             
         return $next($request);
