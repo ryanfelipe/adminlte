@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
+use JWTAuth;
 use App\User;
 
 class AuthServiceProvider extends ServiceProvider
@@ -33,6 +33,14 @@ class AuthServiceProvider extends ServiceProvider
                 }
                 return false;
         });
+
+        Gate::define('api-proprio-perfil',function(User $user,$id){
+            if($user->id == $id){
+                return true;
+            }
+            abort(401,'Sem permissão');   
+        });    
+
 
         //
     }
