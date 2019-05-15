@@ -15,24 +15,34 @@ class GenericController extends Controller
             $this->model = $model;
     }
 
+    public function __destruct()
+    {
+            unset($this->model);
+    }
+
     public function delete($id)
     {
         if($id == null || $id == ''){
-            return redirect()->back();
+            return response()->json(['type'=>'erro','msg'=>'ID vazio ou nulo']);
         }
         $this->model->find($id)->delete();
     }
 
     public function update(Request $request)
     {
-        
+        $this->authorize('api-proprio-perfil',$request->input('id'));
+
         $model = $this->model->find($request->input('id'));
-        return $model->update($request->all());
-                    
+        $model->update($request->except('id'));
+
+        return $this->model->find($request->input('id'));             
     }
 
     public function find($id=null)
     {
+        if($id == null || $id == ''){
+            return response()->json(['type'=>'erro','msg'=>'ID vazio ou nulo']);
+        }
          return $this->model->find($id);
           
     }

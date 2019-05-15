@@ -24,7 +24,9 @@ Route::get('event',function(){
 
 Route::prefix('perfil')->group(function(){
 	Route::group(['middleware'=> 'jwt.auth' ],function(){
-		Route::middleware(['can:api-proprio-perfil,id'])->get('/{id}','Api\User\PerfilController@find');		
+		Route::middleware(['can:api-proprio-perfil,id'])->get('/{id}','Api\User\PerfilController@find');
+		Route::post('update','Api\User\PerfilController@update');
+
   	}); 
 });
 

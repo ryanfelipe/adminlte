@@ -11,8 +11,12 @@ class PerfilController extends GenericController
 {
       public function __construct(User $user)
       {
-             parent::__construct($user);
-             
+             parent::__construct($user);             
+      }
+
+      public function __destruct()
+      {
+            parent::__destruct();          
       }
 
 }
